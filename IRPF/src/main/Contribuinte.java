@@ -9,8 +9,8 @@ public class Contribuinte {
 	private String nome;
 	private int numero_dependentes;
 	private String cpf;
-	private BigDecimal contribuicao_oficial;
-	private BigDecimal total_rendimentos;
+	private Double contribuicao_oficial;
+	private Double total_rendimentos;
 	
 	public Contribuinte(String nome, String cpf){
 		this.nome = nome;
@@ -41,7 +41,7 @@ public class Contribuinte {
 		return cpf;
 	}
 
-	public BigDecimal getContribuicao_oficial() {
+	public Double getContribuicao_oficial() {
 		return contribuicao_oficial;
 	}
 
@@ -49,7 +49,7 @@ public class Contribuinte {
 		this.contribuicao_oficial.valueOf(contribuicao_oficial);
 	}
 
-	public BigDecimal getTotal_rendimentos() {
+	public Double getTotal_rendimentos() {
 		return total_rendimentos;
 	}
 
