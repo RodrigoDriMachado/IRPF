@@ -1,27 +1,23 @@
 package main;
 
-import java.math.BigDecimal;
+
 
 public class Imposto {
 	
-	//private static Contribuinte contribuinte;
+		private static Contribuinte c;
 		private Double imposto_simplificado;
 		private Double imposto_completo;
 		private Double baseCalculo;
-		private Double rendimentos;
-		private Double previdencia;
-		
-
-		public Imposto(Contribuinte c){
-			this.previdencia = c.getContribuicao_oficial();
-			//this.baseCalculo = c.getTotal_rendimentos();
-			//this.baseCalculo = this.baseCalculo - this.previdencia;
+	
+		public Imposto(Contribuinte contribuinte){
+			this.c = contribuinte;
+			
 		}
 			
-		public Double calculaImpostoSimplificado(Contribuinte c){
+		public Double calculaImpostoSimplificado(){
 			Double aux;
 			this.baseCalculo = c.getTotal_rendimentos();
-			this.baseCalculo = this.baseCalculo - this.previdencia;
+			this.baseCalculo = this.baseCalculo - c.getContribuicao_oficial();
 			aux = this.baseCalculo;
 			aux = aux * 0.05;
 			this.baseCalculo = this.baseCalculo - aux;
@@ -38,8 +34,8 @@ public class Imposto {
 			return this.imposto_simplificado;
 		}
 		
-		private Double calculaImpostoCompleto(Contribuinte c){
-		
+		public Double calculaImpostoCompleto(){
+			
 			int idade_c, dependentes_c;
 			idade_c = c.getIdade();
 			dependentes_c = c.getNumero_dependentes();
