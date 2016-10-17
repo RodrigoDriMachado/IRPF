@@ -1,6 +1,5 @@
 package main;
 
-import java.math.BigDecimal;
 
 public class Contribuinte {
 	
@@ -12,9 +11,11 @@ public class Contribuinte {
 	private Double contribuicao_oficial;
 	private Double total_rendimentos;
 	
-	public Contribuinte(String nome, String cpf){
+	public Contribuinte(String nome, String cpf, Double contribuicaoOficial, Double totalRendimentos){
 		this.nome = nome;
 		this.cpf = cpf;
+		this.contribuicao_oficial = contribuicaoOficial;
+		this.total_rendimentos = totalRendimentos;
 	}
 
 	public int getIdade() {
@@ -46,7 +47,7 @@ public class Contribuinte {
 	}
 
 	public void setContribuicao_oficial(Double contribuicao_oficial) {
-		this.contribuicao_oficial.valueOf(contribuicao_oficial);
+		this.contribuicao_oficial = contribuicao_oficial;
 	}
 
 	public Double getTotal_rendimentos() {
@@ -54,7 +55,7 @@ public class Contribuinte {
 	}
 
 	public void setTotal_rendimentos(Double total_rendimentos) {
-		this.total_rendimentos.valueOf(total_rendimentos);
+		this.total_rendimentos = total_rendimentos;
 	}
 
 }
