@@ -47,10 +47,11 @@ public class Imposto {
 				} else {
 					Double aux;
 					aux = (this.baseCalculo - 240000.00) * 0.275;
-					this.imposto_completo = (this.baseCalculo.doubleValue() - 12000.00) * 0.15;
+					this.imposto_completo = (this.baseCalculo - 12000.00) * 0.15;
 					this.imposto_completo = this.imposto_completo + aux;
 				}
-			} else if (dependentes_c >= 3 && dependentes_c < 5) {
+			}
+			else if (dependentes_c >= 3 && dependentes_c <= 5) {
 				this.baseCalculo = this.baseCalculo - (this.baseCalculo * 0.035);
 				if (this.baseCalculo < 12000.00) {
 					this.imposto_completo = 0.0;
@@ -58,12 +59,13 @@ public class Imposto {
 					this.imposto_completo = (this.baseCalculo - 12000.00) * 0.15;
 				} else {
 					Double aux;
-					aux = this.baseCalculo.doubleValue();
+					aux = this.baseCalculo;
 					aux = (this.baseCalculo - 12000.00) * 0.15;
 					this.baseCalculo = (this.baseCalculo - 24000.00) * 0.275;
 					this.imposto_completo = aux + this.baseCalculo;
 				}
-			} else if (dependentes_c > 5) {
+			}
+			else if (dependentes_c > 5) {
 				this.baseCalculo = this.baseCalculo - (this.baseCalculo * 0.05);
 				if (this.baseCalculo < 12000.00) {
 					this.imposto_completo = 0.0;
@@ -71,7 +73,7 @@ public class Imposto {
 					this.imposto_completo = (this.baseCalculo - 12000.00) * 0.15;
 				} else {
 					Double aux;
-					aux = this.baseCalculo.doubleValue();
+					aux = this.baseCalculo;
 					aux = (this.baseCalculo - 12000.00) * 0.15;
 					this.baseCalculo = (this.baseCalculo - 24000.00) * 0.275;
 					this.imposto_completo = aux + this.baseCalculo;
@@ -86,7 +88,7 @@ public class Imposto {
 					this.imposto_completo = (this.baseCalculo - 12000.00) * 0.15;
 				} else {
 					Double aux;
-					aux = this.baseCalculo.doubleValue();
+					aux = this.baseCalculo;
 					aux = (this.baseCalculo - 12000.00) * 0.15;
 					this.baseCalculo = (this.baseCalculo - 24000.00) * 0.275;
 					this.imposto_completo = aux + this.baseCalculo;
@@ -99,7 +101,7 @@ public class Imposto {
 					this.imposto_completo = (this.baseCalculo - 12000.00) * 0.15;
 				} else {
 					Double aux;
-					aux = this.baseCalculo.doubleValue();
+					aux = this.baseCalculo;
 					aux = (this.baseCalculo - 12000.00) * 0.15;
 					this.baseCalculo = (this.baseCalculo - 24000.00) * 0.275;
 					this.imposto_completo = aux + this.baseCalculo;
@@ -112,7 +114,7 @@ public class Imposto {
 					this.imposto_completo = (this.baseCalculo - 12000.00) * 0.15;
 				} else {
 					Double aux;
-					aux = this.baseCalculo.doubleValue();
+					aux = this.baseCalculo;
 					aux = (this.baseCalculo - 12000.00) * 0.15;
 					this.baseCalculo = (this.baseCalculo - 24000.00) * 0.275;
 					this.imposto_completo = aux + this.baseCalculo;
