@@ -3,8 +3,8 @@ package interfaces;
 
 import java.util.Scanner;
 
-import main.Contribuinte;
-import main.Imposto;
+import negocio.Contribuinte;
+import negocio.Imposto;
 
 public class App {
 
@@ -24,44 +24,61 @@ public class App {
 			
 		 System.out.println("Informe a operacao desejada: ");
 		 System.out.println("1 - Declaracao Simples ");
-		 System.out.println("2 - Cadastrar Cliente ");
+		 System.out.println("2 - Declaracao Completa ");
 
 		 int operacao;
 		 operacao = entrada.nextInt();
 		 
 		switch (operacao) {
 		case 1:
-			System.out.println("Informe seu Nome");
-			nome = entrada.nextLine();
+			
+			System.out.println("Informe um nome");
+			nome = entrada.next();
+			
 			System.out.println("Informe seu cpf");
-			cpf = entrada.nextLine();
+			cpf = entrada.next();
+			
 			System.out.println("Inform sua contribuicao oficial");
 			contribuicaoOficial = entrada.nextDouble();
+			
 			System.out.println("Inform o total de seus rendimentos");
 			totalRendimentos = entrada.nextDouble();
+			
 			Contribuinte contribuinte = new Contribuinte(nome, cpf, contribuicaoOficial, totalRendimentos);
+			
 			imp = new Imposto(contribuinte);
 			imposto = imp.calculaImpostoSimplificado();
+			
 			System.out.println("O imposto a pagar é de: " + imposto);
+			
 			break;
 
 		case 2:
-			System.out.println("Informe seu Nome");
-			nome = entrada.nextLine();
+			
+			System.out.println("Informe um nome");
+			nome = entrada.next();
+			
 			System.out.println("Informe seu cpf");
-			cpf = entrada.nextLine();
+			cpf = entrada.next();
+			
 			System.out.println("Inform sua idade");
 			idade = entrada.nextInt();
+			
 			System.out.println("Inform o numero de dependetes");
 			numDependentes = entrada.nextInt();
+			
 			System.out.println("Inform sua contribuicao oficial");
 			contribuicaoOficial = entrada.nextDouble();
+			
 			System.out.println("Inform o total de seus rendimentos");
 			totalRendimentos = entrada.nextDouble();
-			Contribuinte contribuinte2 = new Contribuinte(nome, cpf, contribuicaoOficial, totalRendimentos);			
+			
+			Contribuinte contribuinte2 = new Contribuinte(nome, cpf, contribuicaoOficial, totalRendimentos);
+			
 			imp = new Imposto(contribuinte2);
 			imposto = imp.calculaImpostoCompleto();
 			System.out.println("O imposto a pagar é de: " + imposto);
+			
 		default:
 			break;
 		}
