@@ -134,6 +134,7 @@ public class TestCalculoImposto {
 	/**
 	 * BASE DE CALCULO MAIOR QUE 24000
 	 * */
+	
 	@Test
 	public void testCalculoImpostoCompleto6(){
 		c.setContribuicao_oficial(32000.0);
@@ -176,6 +177,7 @@ public class TestCalculoImposto {
 	/**
 	 * BASE DE CALCULO MAIOR QUE 24000
 	 * */
+	
 	@Test
 	public void testCalculoImpostoCompleto9(){
 		c.setContribuicao_oficial(32000.0);
@@ -265,6 +267,7 @@ public class TestCalculoImposto {
 		/**
 		 * BASE DE CALCULO MAIOR QUE 24000
 		 * */
+		
 		@Test
 		public void testCalculoImpostoCompleto15(){
 			c.setContribuicao_oficial(32000.0);
@@ -307,13 +310,14 @@ public class TestCalculoImposto {
 		/**
 		 * BASE DE CALCULO MAIOR QUE 24000
 		 * */
+		
 		@Test
 		public void testCalculoImpostoCompleto18(){
 			c.setContribuicao_oficial(32000.0);
 			c.setTotal_rendimentos(850000.0);
 			c.setNumero_dependentes(8);
 			c.setIdade(25);
-			assertEquals(12773,5,this.imp.calculaImpostoCompleto());
+			assertEquals(12773,5,this.imp.calculaImpostoCompleto());		
 		}
 	
 }
