@@ -10,12 +10,12 @@ import negocio.*;
 
 public class TestCalculoImposto {
 	Double aux;
-	Imposto imp;
+	ImpostoSimples imp;
 	Contribuinte c;
 	@Before
 	public void setup() {
 		c = new Contribuinte("Rodrigo", "0253698209", 3500.0, 5000.0);
-		imp = new Imposto(c);
+		imp = new ImpostoSimples(c);
 		
 	}
 	

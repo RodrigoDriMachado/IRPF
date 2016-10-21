@@ -4,11 +4,11 @@ package interfaces;
 import java.util.Scanner;
 
 import negocio.Contribuinte;
-import negocio.Imposto;
+import negocio.ImpostoSimples;
 
 public class App {
 
-	private static Imposto imp;
+	private static ImpostoSimples imp;
 	private static String nome;
 	private static String cpf;
 	private static int idade;
@@ -46,7 +46,7 @@ public class App {
 			
 			Contribuinte contribuinte = new Contribuinte(nome, cpf, contribuicaoOficial, totalRendimentos);
 			
-			imp = new Imposto(contribuinte);
+			imp = new ImpostoSimples(contribuinte);
 			imposto = imp.calculaImpostoSimplificado();
 			
 			System.out.println("O imposto a pagar é de: " + imposto);
@@ -75,7 +75,7 @@ public class App {
 			
 			Contribuinte contribuinte2 = new Contribuinte(nome, cpf, contribuicaoOficial, totalRendimentos);
 			
-			imp = new Imposto(contribuinte2);
+			imp = new ImpostoSimples(contribuinte2);
 			imposto = imp.calculaImpostoCompleto();
 			System.out.println("O imposto a pagar é de: " + imposto);
 			
