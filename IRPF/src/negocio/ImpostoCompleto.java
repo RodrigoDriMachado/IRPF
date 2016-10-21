@@ -4,15 +4,20 @@ public class ImpostoCompleto {
 	
 	private CalculaBaseCalculo calcBase;
 	private Double baseCalculo;
+	private Contribuinte contribuinte;
+	private Double imposto_completo;
 	
-	public Double calculaImpostoCompleto() {
+	public ImpostoCompleto(Contribuinte c){
+		this.calcBase = new CalculaBaseCalculo();
+		this.contribuinte = c;
+	}
+	
+	public Double calculaImpostoCompleto(Contribuinte c) {
 		
-		
-		calcBase = new CalculaBaseCalculo();
-		calcBase.calculaBaseCalculo(c);
+		baseCalculo = calcBase.calculaBaseCalculo(c);
 		int idade_c, dependentes_c;
-		idade_c = c.getIdade();
-		dependentes_c = c.getNumero_dependentes();
+		idade_c = contribuinte.getIdade();
+		dependentes_c = contribuinte.getNumero_dependentes();
 
 		if (idade_c < 65) {
 			if (dependentes_c <= 2) {
@@ -98,5 +103,6 @@ public class ImpostoCompleto {
 				}
 			}
 		}
-
+		return this.imposto_completo;
+	}
 }

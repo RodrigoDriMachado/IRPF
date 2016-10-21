@@ -1,24 +1,21 @@
 package negocio;
 
-import java.util.ArrayList;
-
 public class CalculaImposto {
-	
-	private static CalculaImposto calcImp = null;
-	//private static int simples;
-	
-	
-	 private CalculaImposto() {
-	    //   this.simples = 1;
-	    }
-	
-	 public static CalculaImposto getInstance() {
-	        if (calcImp == null) {
-	        	calcImp = new CalculaImposto();
-	        }
-	        return calcImp;
-	    }
 
-	
-	
+	private ImpostoCompleto impostoComletoDevido;
+	private ImpostoSimples impostoSimplesDevido;
+	Contribuinte contribuinte;
+
+	private CalculaImposto(Contribuinte c) {
+		this.contribuinte = c;
+	}
+
+	public Double calculaInmpostoSimples() {
+		return this.impostoComletoDevido.calculaImpostoCompleto(this.contribuinte);
+	}
+
+	public Double calculaInmpostoCompleto() {
+		return this.impostoSimplesDevido.calculaImpostoSimplificado(this.contribuinte);
+	}
+
 }

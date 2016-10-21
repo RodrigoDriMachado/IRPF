@@ -2,20 +2,17 @@ package negocio;
 
 public class ImpostoSimples {
 
-	private static Contribuinte c;
 	private Double imposto_simplificado;
-	private Double imposto_completo;
 	private Double baseCalculo;
+	private CalculaBaseCalculo calcBase;
 
-	public ImpostoSimples(Contribuinte contribuinte) {
-		this.c = contribuinte;
+	public ImpostoSimples() {
+		this.calcBase = new CalculaBaseCalculo();
 	}
-	
-	
 
-	public Double calculaImpostoSimplificado() {
+	public Double calculaImpostoSimplificado(Contribuinte c) {
 		Double aux;
-		calculaBaseCalculo();
+		baseCalculo = calcBase.calculaBaseCalculo(c);
 		aux = this.baseCalculo;
 		aux = aux * 0.05;
 		this.baseCalculo = this.baseCalculo - aux;
@@ -30,9 +27,4 @@ public class ImpostoSimples {
 		return this.imposto_simplificado;
 	}
 
-
-
-		return this.imposto_completo;
-	}
-
-	}
+}
