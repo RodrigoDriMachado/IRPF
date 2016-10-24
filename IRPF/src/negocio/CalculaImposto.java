@@ -6,7 +6,7 @@ public class CalculaImposto {
 	private ImpostoSimples impostoSimplesDevido;
 	Contribuinte contribuinte;
 
-	private CalculaImposto(Contribuinte c) {
+	public CalculaImposto(Contribuinte c) {
 		this.contribuinte = c;
 	}
 

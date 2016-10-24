@@ -11,11 +11,13 @@ public class Contribuinte {
 	private Double contribuicao_oficial;
 	private Double total_rendimentos;
 	
-	public Contribuinte(String nome, String cpf, Double contribuicaoOficial, Double totalRendimentos){
+	public Contribuinte(String nome, String cpf, int idade, int numero_dependentes, Double contrOficial, Double totlRendimentos){
 		this.nome = nome;
 		this.cpf = cpf;
-		this.contribuicao_oficial = contribuicaoOficial;
-		this.total_rendimentos = totalRendimentos;
+		this.numero_dependentes = numero_dependentes;
+		this.idade = idade;
+		this.contribuicao_oficial = contrOficial;
+		this.total_rendimentos = totlRendimentos;
 	}
 
 	public int getIdade() {

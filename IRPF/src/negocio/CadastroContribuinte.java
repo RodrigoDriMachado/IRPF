@@ -4,27 +4,50 @@ import java.util.ArrayList;
 
 public class CadastroContribuinte {
 
-	private ArrayList<Contribuinte> listaContribuinte;
-	private static CadastroContribuinte cad = null;
+	private static Contribuinte contribuinte;
+	private static ContribuinteDAO contribuinteDAO;
+	private int idade;
+	private String nome;
+	private int numero_dependentes;
+	private String cpf;
 
-    private CadastroContribuinte() {
-        listaContribuinte = new ArrayList<>();
+    public CadastroContribuinte() {
+    	this.contribuinteDAO = this.contribuinteDAO.getInstance();
+    }
+    
+    public void cadastraContribuinte(String nome, String cpf,int idade,  int nrDepn, Double contrOf, Double rend){
+    	this.contribuinte = new Contribuinte(nome, cpf, idade, nrDepn, contrOf, rend);
+    	contribuinteDAO.add(contribuinte);
+    }
+    
+    public void removeContribuinte(String nome){
+    	int aux;
+    	aux = contribuinteDAO.pesquisaNodoCliente(nome);
+    	if(aux!=0)
+    	contribuinteDAO.removeContribuinte(aux);
+    }
+    
+    public void setContribuicaoOficial(String nome, Double contribuicaoOf){
+    	int aux;
+    	aux = contribuinteDAO.pesquisaNodoCliente(nome);
+    	if(aux!=0){
+    		this.contribuinte = contribuinteDAO.pesquisaContribuinte(nome);
+    	}
+    	this.contribuinte.setContribuicao_oficial(contribuicaoOf);
+    }
+    
+    public void setRendimentos(String nome, Double rendimentos){
+    	int aux;
+    	aux = contribuinteDAO.pesquisaNodoCliente(nome);
+    	if(aux!=0){
+    		this.contribuinte = contribuinteDAO.pesquisaContribuinte(nome);
+    	}
+    	this.contribuinte.setTotal_rendimentos(rendimentos);
+    }
+    
+    public Contribuinte pesquisaContribuinte(String nome){
+    	return contribuinteDAO.pesquisaContribuinte(nome);    	
     }
 
-    public static CadastroContribuinte getInstance() {
-        if (cad == null) {
-            cad = new CadastroContribuinte();
-        }
-        return cad;
-    }
 
-    public void cleanAll() {
-        listaContribuinte.clear();
-    }
-
-    public void add(Contribuinte contribuinte) {
-        listaContribuinte.add(contribuinte);
-    }
-
-	
 }
