@@ -2,20 +2,20 @@ package negocio;
 
 public class CalculaImposto {
 
-	private ImpostoCompleto impostoComletoDevido;
+	private ImpostoCompleto impostoCompletoDevido;
 	private ImpostoSimples impostoSimplesDevido;
-	Contribuinte contribuinte;
 
-	public CalculaImposto(Contribuinte c) {
-		this.contribuinte = c;
+	public CalculaImposto() {
+		this.impostoCompletoDevido = new ImpostoCompleto();
+		this.impostoSimplesDevido = new ImpostoSimples();
 	}
 
-	public Double calculaInmpostoSimples() {
-		return this.impostoComletoDevido.calculaImpostoCompleto(this.contribuinte);
+	public Double calculaInmpostoSimples(Contribuinte contribuinte) {
+		return this.impostoSimplesDevido.calculaImpostoSimplificado(contribuinte);
 	}
 
-	public Double calculaInmpostoCompleto() {
-		return this.impostoSimplesDevido.calculaImpostoSimplificado(this.contribuinte);
+	public Double calculaInmpostoCompleto(Contribuinte contribuinte) {
+		return this.impostoCompletoDevido.calculaImpostoCompleto(contribuinte);
 	}
 
 }

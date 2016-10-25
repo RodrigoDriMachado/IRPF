@@ -7,15 +7,15 @@ public class ImpostoCompleto {
 	private Contribuinte contribuinte;
 	private Double imposto_completo;
 	
-	public ImpostoCompleto(Contribuinte c){
+	public ImpostoCompleto(){
 		this.calcBase = new CalculaBaseCalculo();
-		this.contribuinte = c;
 	}
 	
 	public Double calculaImpostoCompleto(Contribuinte c) {
-		
+		contribuinte = c;
 		baseCalculo = calcBase.calculaBaseCalculo(c);
 		int idade_c, dependentes_c;
+		
 		idade_c = contribuinte.getIdade();
 		dependentes_c = contribuinte.getNumero_dependentes();
 

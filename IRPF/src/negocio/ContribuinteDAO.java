@@ -7,7 +7,7 @@ public class ContribuinteDAO {
 	private ArrayList<Contribuinte> listaContribuinte;
 	private static ContribuinteDAO cad = null;
 
-	private ContribuinteDAO() {
+	public ContribuinteDAO() {
 		listaContribuinte = new ArrayList<>();
 	}
 
@@ -23,7 +23,9 @@ public class ContribuinteDAO {
 	}
 
 	public void add(Contribuinte contribuinte) {
+		
 		listaContribuinte.add(contribuinte);
+		
 	}
 
 	public void removeContribuinte(int index) {
@@ -32,7 +34,7 @@ public class ContribuinteDAO {
 
 	public int pesquisaNodoCliente(String nome) {
 		int aux = 0;
-		for (int i = 1; i <= listaContribuinte.size(); i++) {
+		for (int i = 0; i < listaContribuinte.size(); i++) {
 			if (listaContribuinte.get(i).getNome().equals(nome)) {
 				aux = listaContribuinte.indexOf(listaContribuinte.get(i));
 			}
@@ -40,14 +42,15 @@ public class ContribuinteDAO {
 		return aux;
 	}
 
-	public Contribuinte pesquisaContribuinte(String nome) {
+	public Contribuinte getContribuinte(String nome) {
 		Contribuinte aux = null;
-		for (int i = 1; i <= listaContribuinte.size(); i++) {
+		for (int i = 0; i < listaContribuinte.size(); i++) {
 			if (listaContribuinte.get(i).getNome().equals(nome)) {
 				aux = listaContribuinte.get(i);
 			}
 		}
 		return aux;
 	}
-
+	
+	
 }
